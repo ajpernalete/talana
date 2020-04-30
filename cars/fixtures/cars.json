@@ -1,0 +1,172 @@
+[
+{
+    "model": "cars.car",
+    "pk": 1,
+    "fields": {
+        "title": "Accent",
+        "marca_car": "Hyundai",
+        "modelo_car": "sedan",
+        "color_car": "blanco",
+        "patente": "XS-TL-23",
+        "num_puertas": 4,
+        "tipo_consumo": "bencina",
+        "tama\u00f1o": "mediano",
+        "image_car": "cars/accent.jpg",
+        "slug": "accent-blanco",
+        "created_at": "2020-04-30T01:17:57.626Z"
+    }
+},
+{
+    "model": "cars.car",
+    "pk": 2,
+    "fields": {
+        "title": "Santa Fe",
+        "marca_car": "Hyundai",
+        "modelo_car": "suv",
+        "color_car": "gris",
+        "patente": "KK-HY-18",
+        "num_puertas": 4,
+        "tipo_consumo": "petrolero",
+        "tama\u00f1o": "grande",
+        "image_car": "cars/santa_fe.jpg",
+        "slug": "santa-fe-gris",
+        "created_at": "2020-04-30T01:18:30.313Z"
+    }
+},
+{
+    "model": "cars.car",
+    "pk": 3,
+    "fields": {
+        "title": "Spark",
+        "marca_car": "Chevrolet",
+        "modelo_car": "microauto",
+        "color_car": "naranja",
+        "patente": "23-LK-TT",
+        "num_puertas": 2,
+        "tipo_consumo": "bencina",
+        "tama\u00f1o": "mediano",
+        "image_car": "cars/spark.jpg",
+        "slug": "spark-naranja",
+        "created_at": "2020-04-30T01:19:18.223Z"
+    }
+},
+{
+    "model": "cars.car",
+    "pk": 4,
+    "fields": {
+        "title": "Corolla",
+        "marca_car": "Toyota",
+        "modelo_car": "sedan",
+        "color_car": "blanco",
+        "patente": "3E-FR-21",
+        "num_puertas": 4,
+        "tipo_consumo": "bencina",
+        "tama\u00f1o": "mediano",
+        "image_car": "cars/corolla.jpg",
+        "slug": "corolla-blanco",
+        "created_at": "2020-04-30T02:12:25.182Z"
+    }
+},
+{
+    "model": "cars.car",
+    "pk": 5,
+    "fields": {
+        "title": "Cherokee",
+        "marca_car": "Jepp",
+        "modelo_car": "todoterreno",
+        "color_car": "blanco",
+        "patente": "DF-TY-ML",
+        "num_puertas": 4,
+        "tipo_consumo": "petrolero",
+        "tama\u00f1o": "grande",
+        "image_car": "cars/cherokee.jpg",
+        "slug": "cherokee-blanco",
+        "created_at": "2020-04-30T02:13:20.997Z"
+    }
+},
+{
+    "model": "cars.car",
+    "pk": 6,
+    "fields": {
+        "title": "Wrangler",
+        "marca_car": "Jeep",
+        "modelo_car": "todoterreno",
+        "color_car": "gris",
+        "patente": "19-LT-21",
+        "num_puertas": 4,
+        "tipo_consumo": "petrolero",
+        "tama\u00f1o": "grande",
+        "image_car": "cars/wrangler.jpg",
+        "slug": "wrangler-gris",
+        "created_at": "2020-04-30T02:14:25.912Z"
+    }
+},
+{
+    "model": "cars.car",
+    "pk": 7,
+    "fields": {
+        "title": "Ram",
+        "marca_car": "Dodge",
+        "modelo_car": "suv",
+        "color_car": "Negro",
+        "patente": "45-LT-HF",
+        "num_puertas": 2,
+        "tipo_consumo": "petrolero",
+        "tama\u00f1o": "extragrande",
+        "image_car": "cars/ram.jpg",
+        "slug": "ram-negro",
+        "created_at": "2020-04-30T02:16:13.557Z"
+    }
+},
+{
+    "model": "cars.car",
+    "pk": 8,
+    "fields": {
+        "title": "Pacifica",
+        "marca_car": "Chrysler",
+        "modelo_car": "suv",
+        "color_car": "Vinotinto",
+        "patente": "LF-HE-DK",
+        "num_puertas": 5,
+        "tipo_consumo": "petrolero",
+        "tama\u00f1o": "extragrande",
+        "image_car": "cars/pacifica.jpg",
+        "slug": "pacifica-vinotinto",
+        "created_at": "2020-04-30T02:17:25.447Z"
+    }
+},
+{
+    "model": "cars.car",
+    "pk": 9,
+    "fields": {
+        "title": "Mustang",
+        "marca_car": "Ford",
+        "modelo_car": "coupe",
+        "color_car": "Azul",
+        "patente": "DF-HG_KL",
+        "num_puertas": 2,
+        "tipo_consumo": "bencina",
+        "tama\u00f1o": "grande",
+        "image_car": "cars/mustang.jpg",
+        "slug": "mustang-azul",
+        "created_at": "2020-04-30T02:18:14.302Z"
+    }
+},
+{
+    "model": "cars.car",
+    "pk": 10,
+    "fields": {
+        "title": "F150",
+        "marca_car": "Ford",
+        "modelo_car": "todoterreno",
+        "color_car": "Azul",
+        "patente": "LU-87-GB",
+        "num_puertas": 4,
+        "tipo_consumo": "petrolero",
+        "tama\u00f1o": "extragrande",
+        "image_car": "cars/f150.jpg",
+        "slug": "f150-azul",
+        "created_at": "2020-04-30T02:19:15.483Z"
+    }
+}
+]
