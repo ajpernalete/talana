@@ -1,0 +1,11 @@
+<!--Car-->
+<div class="card h-100">
+
+    {% if car.image_car %}
+        <img src="{{car.image_car.url}}" alt="Imagen del carro" height="200">
+    {% endif %}
+    <div class="card-body">
+        <h5 class="card-title">{{car.title}}</h5>
+        <a href="{% url 'cars:car' car.slug %}" class="btn btn-primary">Ver más</a>
+    </div>
+</div>

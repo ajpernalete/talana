@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+   
+<div class="col-md-12">
+    
+    <div class="h1 text-center">{{ car.marca_car }} {{ car.title }}</div>
+
+</div>
+
+<div class="col-12">
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col-md-6 p-4 d-flex flex-column position-static">
+            <div class="row">
+                <div class="col">
+                    <h4>Marca: <span class="text-success text-center">{{ car.marca_car }}</span></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h4>Modelo: <span class="text-success text-center">{{ car.modelo_car }}</span></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h4>Color: <span class="text-success text-center"><i class="fas fa-tint"></i> {{ car.color_car }}</span></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h4>Consumo: <span class="text-success text-center"><i class="fas fa-gas-pump"></i> {{ car.tipo_consumo }}</span></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h4>Tamaño: <span class="text-success text-center"><i class="fas fa-ruler-combined"></i> {{ car.tamaño }}</span></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h4>Puertas: <span class="text-success text-center"><i class="fas fa-car"></i> {{ car.num_puertas }}</span></h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 d-none d-lg-block">
+            {% if car.image_car %}
+                <img src="{{ car.image_car.url }}" alt="{{ car.title }}" width="600">
+            {% endif %}
+        </div>
+    </div>
+</div> 
+    
+{% endblock content %}

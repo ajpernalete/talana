@@ -1,0 +1,11 @@
+<div class="row">
+    
+    {% for object in object_list %}
+
+        <div class="col-md-3">
+            {% include 'cars/snippets/car.html' with car=object %}
+        </div>
+
+    {% endfor %}
+
+</div>

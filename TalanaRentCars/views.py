@@ -1,8 +1,12 @@
 from django.shortcuts import render
-from django.shortcuts import redirect
-from django.http import HttpResponse
+
+from cars.models import Car
 
 def index(request):
+    cars = Car.objects.all().order_by('-id')
+
     return render(request, 'index.html', {
-        #Context
+        'message':'Listado de carros',
+        'title':'Carros',
+        'cars':cars
     })

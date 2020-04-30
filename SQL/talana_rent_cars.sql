@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-04-2020 a las 01:26:41
+-- Tiempo de generación: 30-04-2020 a las 04:20:28
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.8
 
@@ -94,7 +94,11 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (29, 'Can add clients', 8, 'add_clients'),
 (30, 'Can change clients', 8, 'change_clients'),
 (31, 'Can delete clients', 8, 'delete_clients'),
-(32, 'Can view clients', 8, 'view_clients');
+(32, 'Can view clients', 8, 'view_clients'),
+(33, 'Can add car', 9, 'add_car'),
+(34, 'Can change car', 9, 'change_car'),
+(35, 'Can delete car', 9, 'delete_car'),
+(36, 'Can view car', 9, 'view_car');
 
 -- --------------------------------------------------------
 
@@ -150,11 +154,12 @@ CREATE TABLE `auth_user_user_permissions` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cars_cars`
+-- Estructura de tabla para la tabla `cars_car`
 --
 
-CREATE TABLE `cars_cars` (
+CREATE TABLE `cars_car` (
   `id` int(11) NOT NULL,
+  `title` varchar(50) NOT NULL,
   `marca_car` varchar(50) NOT NULL,
   `modelo_car` varchar(50) NOT NULL,
   `color_car` varchar(50) NOT NULL,
@@ -163,18 +168,25 @@ CREATE TABLE `cars_cars` (
   `tipo_consumo` varchar(10) NOT NULL,
   `tamaño` varchar(15) NOT NULL,
   `image_car` varchar(100) NOT NULL,
-  `created_at` datetime(6) NOT NULL,
-  `title` varchar(50) NOT NULL
+  `slug` varchar(50) NOT NULL,
+  `created_at` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `cars_cars`
+-- Volcado de datos para la tabla `cars_car`
 --
 
-INSERT INTO `cars_cars` (`id`, `marca_car`, `modelo_car`, `color_car`, `patente`, `num_puertas`, `tipo_consumo`, `tamaño`, `image_car`, `created_at`, `title`) VALUES
-(4, 'Hyundai', 'sedan', 'blanco', 'XS-TL-23', 4, 'bencina', 'mediano', 'products/accent_H8nSmdD.jpg', '2020-04-29 23:13:52.668214', 'Accent'),
-(5, 'Hyundai', 'suv', 'gris', 'KK-HY-18', 4, 'petrolero', 'grande', 'products/santa_fe_IGjvqiX.jpg', '2020-04-29 23:14:20.417028', 'Santa Fe'),
-(6, 'Chevrolet', 'microauto', 'naranja', '23-LK-TT', 2, 'bencina', 'pequeño', 'products/spark.jpg', '2020-04-29 23:15:00.782226', 'Spark');
+INSERT INTO `cars_car` (`id`, `title`, `marca_car`, `modelo_car`, `color_car`, `patente`, `num_puertas`, `tipo_consumo`, `tamaño`, `image_car`, `slug`, `created_at`) VALUES
+(1, 'Accent', 'Hyundai', 'sedan', 'blanco', 'XS-TL-23', 4, 'bencina', 'mediano', 'cars/accent.jpg', 'accent-blanco', '2020-04-30 01:17:57.626193'),
+(2, 'Santa Fe', 'Hyundai', 'suv', 'gris', 'KK-HY-18', 4, 'petrolero', 'grande', 'cars/santa_fe.jpg', 'santa-fe-gris', '2020-04-30 01:18:30.313690'),
+(3, 'Spark', 'Chevrolet', 'microauto', 'naranja', '23-LK-TT', 2, 'bencina', 'mediano', 'cars/spark.jpg', 'spark-naranja', '2020-04-30 01:19:18.223443'),
+(4, 'Corolla', 'Toyota', 'sedan', 'blanco', '3E-FR-21', 4, 'bencina', 'mediano', 'cars/corolla.jpg', 'corolla-blanco', '2020-04-30 02:12:25.182221'),
+(5, 'Cherokee', 'Jepp', 'todoterreno', 'blanco', 'DF-TY-ML', 4, 'petrolero', 'grande', 'cars/cherokee.jpg', 'cherokee-blanco', '2020-04-30 02:13:20.997023'),
+(6, 'Wrangler', 'Jeep', 'todoterreno', 'gris', '19-LT-21', 4, 'petrolero', 'grande', 'cars/wrangler.jpg', 'wrangler-gris', '2020-04-30 02:14:25.912910'),
+(7, 'Ram', 'Dodge', 'suv', 'Negro', '45-LT-HF', 2, 'petrolero', 'extragrande', 'cars/ram.jpg', 'ram-negro', '2020-04-30 02:16:13.557848'),
+(8, 'Pacifica', 'Chrysler', 'suv', 'Vinotinto', 'LF-HE-DK', 5, 'petrolero', 'extragrande', 'cars/pacifica.jpg', 'pacifica-vinotinto', '2020-04-30 02:17:25.447386'),
+(9, 'Mustang', 'Ford', 'coupe', 'Azul', 'DF-HG_KL', 2, 'bencina', 'grande', 'cars/mustang.jpg', 'mustang-azul', '2020-04-30 02:18:14.302566'),
+(10, 'F150', 'Ford', 'todoterreno', 'Azul', 'LU-87-GB', 4, 'petrolero', 'extragrande', 'cars/f150.jpg', 'f150-azul', '2020-04-30 02:19:15.483461');
 
 -- --------------------------------------------------------
 
@@ -213,7 +225,17 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (6, '2020-04-29 23:14:20.419023', '5', 'kk-hy-18', 1, '[{\"added\": {}}]', 7, 1),
 (7, '2020-04-29 23:15:00.784220', '6', '23-LK-TT', 1, '[{\"added\": {}}]', 7, 1),
 (8, '2020-04-29 23:15:23.553983', '5', 'KK-HY-18', 2, '[{\"changed\": {\"fields\": [\"Patente\"]}}]', 7, 1),
-(9, '2020-04-29 23:15:34.620197', '4', 'XS-TL-23', 2, '[{\"changed\": {\"fields\": [\"Patente\"]}}]', 7, 1);
+(9, '2020-04-29 23:15:34.620197', '4', 'XS-TL-23', 2, '[{\"changed\": {\"fields\": [\"Patente\"]}}]', 7, 1),
+(10, '2020-04-30 01:17:57.631181', '1', 'XS-TL-23', 1, '[{\"added\": {}}]', 9, 1),
+(11, '2020-04-30 01:18:30.314685', '2', 'KK-HY-18', 1, '[{\"added\": {}}]', 9, 1),
+(12, '2020-04-30 01:19:18.225440', '3', '23-LK-TT', 1, '[{\"added\": {}}]', 9, 1),
+(13, '2020-04-30 02:12:25.184216', '4', '3E-FR-21', 1, '[{\"added\": {}}]', 9, 1),
+(14, '2020-04-30 02:13:21.283671', '5', 'DF-TY-ML', 1, '[{\"added\": {}}]', 9, 1),
+(15, '2020-04-30 02:14:25.914904', '6', '19-LT-21', 1, '[{\"added\": {}}]', 9, 1),
+(16, '2020-04-30 02:16:13.558841', '7', '45-LT-HF', 1, '[{\"added\": {}}]', 9, 1),
+(17, '2020-04-30 02:17:25.449380', '8', 'LF-HE-DK', 1, '[{\"added\": {}}]', 9, 1),
+(18, '2020-04-30 02:18:14.303565', '9', 'DF-HG_KL', 1, '[{\"added\": {}}]', 9, 1),
+(19, '2020-04-30 02:19:15.485459', '10', 'LU-87-GB', 1, '[{\"added\": {}}]', 9, 1);
 
 -- --------------------------------------------------------
 
@@ -236,6 +258,7 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (3, 'auth', 'group'),
 (2, 'auth', 'permission'),
 (4, 'auth', 'user'),
+(9, 'cars', 'car'),
 (7, 'cars', 'cars'),
 (8, 'clients', 'clients'),
 (5, 'contenttypes', 'contenttype'),
@@ -279,7 +302,9 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (18, 'cars', '0001_initial', '2020-04-29 22:53:29.072207'),
 (19, 'clients', '0001_initial', '2020-04-29 22:53:30.561376'),
 (20, 'cars', '0002_auto_20200429_1907', '2020-04-29 23:07:22.658311'),
-(21, 'cars', '0003_cars_title', '2020-04-29 23:13:13.197747');
+(21, 'cars', '0003_cars_title', '2020-04-29 23:13:13.197747'),
+(22, 'cars', '0004_auto_20200429_2014', '2020-04-30 00:14:08.150341'),
+(23, 'cars', '0005_auto_20200429_2111', '2020-04-30 01:11:54.007970');
 
 -- --------------------------------------------------------
 
@@ -350,11 +375,12 @@ ALTER TABLE `auth_user_user_permissions`
   ADD KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`);
 
 --
--- Indices de la tabla `cars_cars`
+-- Indices de la tabla `cars_car`
 --
-ALTER TABLE `cars_cars`
+ALTER TABLE `cars_car`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `patente` (`patente`);
+  ADD UNIQUE KEY `patente` (`patente`),
+  ADD UNIQUE KEY `slug` (`slug`);
 
 --
 -- Indices de la tabla `clients_clients`
@@ -402,7 +428,7 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT de la tabla `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `auth_user`
@@ -423,10 +449,10 @@ ALTER TABLE `auth_user_user_permissions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `cars_cars`
+-- AUTO_INCREMENT de la tabla `cars_car`
 --
-ALTER TABLE `cars_cars`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `cars_car`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `clients_clients`
@@ -444,13 +470,13 @@ ALTER TABLE `django_admin_log`
 -- AUTO_INCREMENT de la tabla `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Restricciones para tablas volcadas
